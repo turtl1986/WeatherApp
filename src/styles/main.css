@@ -1,0 +1,278 @@
+:root {
+    --app-main-color: rgba(245, 244, 244, 1);
+    --app-secondary-color: rgba(32, 32, 32, 1);
+    --app-radius: 8px;
+    --app-max-width: 1120px;
+}
+
+
+body {
+    min-width: 1280px;
+    font-family: Raleway, sans-serif;
+    font-variant-numeric: lining-nums;
+    margin: 0;
+    overflow: auto;
+}
+
+.app-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../assets/images/backgrounds/cover.jpeg") center center no-repeat;
+    background-size: cover;
+    z-index: -1;
+}
+
+.weather-app {
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    max-width: 1120px;
+    margin: 32px auto;
+    color: var(--app-main-color, rgba(245, 244, 244, 1));
+    display: flex;
+    flex-direction: column;
+}
+
+.weather-app__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px;
+}
+
+.weather-app__logo {
+    padding: 10px 0;
+}
+
+.weather-app__search {
+    display: flex;
+    align-items: center;
+    background: rgba(245, 244, 244, 0.4);
+    border-radius: 8px;
+    padding: 12px 16px;
+    border: none;
+    width: 506px;
+    gap: 16px;
+}
+
+.weather-app__search-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: rgba(112, 112, 112, 1);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0;
+    width: 100%;
+}
+
+.weather-app__search-input::placeholder {
+    color: rgba(112, 112, 112, 1);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0;
+}
+
+.weather-app__search-button {
+    border: none;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.weather-app__search-button--search{
+    background: transparent url("../assets/ui/search.svg") center center no-repeat;
+}
+
+.weather-app__search-button--close{
+    background: transparent url("../assets/ui/close.svg") center center no-repeat;
+}
+
+.weather-app__search-button--close:hover{
+    background: transparent url("../assets/ui/dismiss.svg") center center no-repeat;
+}
+
+.weather-app__main {
+    display: flex;
+    flex-direction: column;
+}
+
+.weather-app__block {
+    padding: 32px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.weather-app__current {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    padding: 8px;
+    justify-content: space-between;
+}
+
+.weather-app__city {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: 0;
+    text-align: center;
+    color: var(--app-main-color, rgba(245, 244, 244, 1));
+}
+
+.weather-app__date{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.weather-app__date,
+.weather-app__condition-text,
+.weather-app__feels {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    color: var(--app-main-color, rgba(245, 244, 244, 1));
+}
+
+.weather-app__temperature {
+    padding: 64px;
+    font-weight: 700;
+    font-size: 112px;
+    line-height: 112px;
+    text-align: center;
+    color: var(--app-main-color, rgba(245, 244, 244, 1));
+}
+
+.weather-app__condition {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.weather-app__condition-img {
+    width: 24px;
+    height: 24px;
+}
+
+.weather-app__forecast {
+    display: grid;
+    grid-template-columns: repeat(3, 158px);
+    grid-template-rows: repeat(2, 196px);
+    gap: 16px;
+}
+
+.forecast-card {
+    background: rgba(245, 244, 244, 0.4);
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+}
+
+.forecast-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+}
+
+.forecast-card__label {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    color:var(--app-secondary-color, rgba(32, 32, 32, 1));
+}
+
+.forecast-card__icon {
+    width: 32px;
+    height: 32px;
+}
+
+.forecast-card__value {
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 32px;
+    text-align: center;
+    color:var(--app-secondary-color, rgba(32, 32, 32, 1));
+}
+
+.pressure {
+    background: transparent url("../assets/images/content/climate/barometr.svg") center center no-repeat;
+}
+
+.humidity {
+    background: transparent url("../assets/images/content/climate/humidity.svg") center center no-repeat;
+}
+
+.visibility {
+    background: transparent url("../assets/images/content/climate/visibility.svg") center center no-repeat;
+}
+
+.sunrise {
+    background: transparent url("../assets/images/content/climate/sunrise.svg") center center no-repeat;
+}
+
+.sunset {
+    background: transparent url("../assets/images/content/climate/sunset.svg") center center no-repeat;
+}
+
+.NW {
+    background: transparent url("../assets/images/content/climate/direction.svg") center center no-repeat;
+}
+
+.current-weather-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.current-weather-details__parameter-img {
+    width: 126px;
+    height: 8px;
+}
+
+.weather-details__value--percentage-seventy-five {
+    background: url("../assets/images/content/progressBar/progress75.svg") center center no-repeat;
+}
+
+.weather-details__value--max {
+    background: url("../assets/images/content/implementationProgress/progressBlackHigh.svg") center center no-repeat;
+}
+
+.weather-details__value--percentage-twenty-five {
+    background: url("../assets/images/content/progressBar/progress25.svg") center center no-repeat;
+}
+
+.current-weather-details__parameter--percentage-block {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+}
+
+.current-weather-details__parameter-text {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: right;
+    color:var(--app-secondary-color, rgba(32, 32, 32, 1));
+}
+
+.weather-app__slider {
+    width: 1120px;
+    height: 192px;
+}
+
+.weather-app__footer {
+    width: 1120px;
+    height: 84px;
+}
