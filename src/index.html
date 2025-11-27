@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet">
+    <script defer src="scripts/services/weatherData.js"></script>
+    <script defer src="scripts/components/searchComponent.js"></script>
+    <script defer src="scripts/components/forecastCards.js"></script>
+    <script defer src="scripts/index.js"></script>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <title>WeatherApp</title>
+
+</head>
+<body>
+<div class="app-background"></div>
+<div class="weather-app">
+    <header class="weather-app__header">
+        <h1>
+            <a class="weather-app__logo" href="index.html">
+                <img alt="логотип приложения WeatherApp" src="assets/logo/logo.svg" width="192" height="48"></a>
+        </h1>
+        <div class="weather-app__search">
+            <input type="text"
+                   aria-label="search"
+                   autocomplete="on"
+                   name="header__search"
+                   placeholder="Поиск по городу"
+                   class="weather-app__search-input"/>
+            <button type="button" class="weather-app__search-button weather-app__search-button--search"></button>
+        </div>
+    </header>
+    <main class="weather-app__main">
+        <section class="weather-app__block">
+            <div class="weather-app__current">
+                <h2 class="weather-app__city">Москва</h2>
+                <p class="weather-app__date">
+                    <time datetime="2023-01-06">Суббота, 06 января</time>
+                    <time datetime="11:29">11:29</time>
+                </p>
+                <div class="weather-app__temperature">-7°</div>
+                <div class="weather-app__condition">
+                    <img class="weather-app__condition-img" src="assets/images/content/weatherIcons/dayCloudy.svg"
+                         width="24" height="24"
+                         alt="погодные условия">
+                    <p class="weather-app__condition-text">Облачно</p>
+                </div>
+                <p class="weather-app__feels">Ощущается как -11°</p>
+            </div>
+            <div class="weather-app__forecast"></div>
+        </section>
+        <section class="weather-app__slider"></section>
+    </main>
+    <footer class="weather-app__footer"></footer>
+</div>
+</body>
+</html>
