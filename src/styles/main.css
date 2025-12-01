@@ -195,6 +195,7 @@ body {
 .forecast-card__icon {
     width: 32px;
     height: 32px;
+    background: transparent url("../assets/images/content/climate/direction.svg") center center no-repeat;
 }
 
 .forecast-card__value {
@@ -226,7 +227,35 @@ body {
 }
 
 .NW {
-    background: transparent url("../assets/images/content/climate/direction.svg") center center no-repeat;
+    transform: rotate(90deg);
+}
+
+.N{
+    transform: rotate(45deg);
+}
+
+.NE{
+    transform: rotate(0deg);
+}
+
+.W{
+    transform: rotate(135deg);
+}
+
+.SW{
+    transform: rotate(-90deg);
+}
+
+.S{
+    transform: rotate(-135deg);
+}
+
+.E{
+    transform: rotate(-45deg);
+}
+
+.SE{
+    transform: rotate(-90deg);
 }
 
 .current-weather-details {
@@ -245,12 +274,36 @@ body {
     background: url("../assets/images/content/progressBar/progress75.svg") center center no-repeat;
 }
 
-.weather-details__value--max {
+.weather-details__value--high {
     background: url("../assets/images/content/implementationProgress/progressBlackHigh.svg") center center no-repeat;
 }
 
-.weather-details__value--percentage-twenty-five {
+.weather-details__value--normal {
+    background: url("../assets/images/content/implementationProgress/progressBlackNormal.svg") center center no-repeat;
+}
+
+.weather-details__value--low {
+    background: url("../assets/images/content/implementationProgress/progressBlackLow.svg") center center no-repeat;
+}
+
+.weather-details__value--percentage-0{
+    background: url("../assets/images/content/progressBar/progress0.svg") center center no-repeat;
+}
+
+.weather-details__value--percentage-25 {
     background: url("../assets/images/content/progressBar/progress25.svg") center center no-repeat;
+}
+
+.weather-details__value--percentage-50 {
+    background: url("../assets/images/content/progressBar/progress50.svg") center center no-repeat;
+}
+
+.weather-details__value--percentage-75 {
+    background: url("../assets/images/content/progressBar/progress75.svg") center center no-repeat;
+}
+
+.weather-details__value--percentage-100 {
+    background: url("../assets/images/content/progressBar/progress100.svg") center center no-repeat;
 }
 
 .current-weather-details__parameter--percentage-block {
