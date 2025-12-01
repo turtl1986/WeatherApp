@@ -1,40 +1,92 @@
-const weatherData = {
-    humidity: {
-        value: 75,
-        unit: "%",
-        label: "Влажность",
+const weatherData = [
+    {
+        id: 1,
+        humidity: {value: 75, unit: "%", label: "Влажность"},
+        pressure: {value: 761, label: "Давление", status: "Повышенное"},
+        visibility: {value: 28, unit: "км", label: "Видимость", status: "Нормальная"},
+        sunrise: {value: "08:42", label: "Рассвет", since: "02:47"},
+        sunset: {value: "16:37", label: "Закат", remaining: "05:08"},
+        wind: {value: 2, unit: "м/с", code: "NW", description: "Северо-западный", label: "Сила ветра"},
     },
-
-    pressure: {
-        value: 761,
-        label: "Давление",
-        status: "Повышенное",
+    {
+        id: 2,
+        humidity: {value: 60, unit: "%", label: "Влажность"},
+        pressure: {value: 755, label: "Давление", status: "Нормальное"},
+        visibility: {value: 30, unit: "км", label: "Видимость", status: "Отличная"},
+        sunrise: {value: "08:40", label: "Рассвет", since: "02:45"},
+        sunset: {value: "16:39", label: "Закат", remaining: "04:50"},
+        wind: {value: 4, unit: "м/с", code: "N", description: "Северо-западный", label: "Сила ветра"},
     },
-
-    visibility: {
-        value: 28,
-        unit: "км",
-        label: "Видимость",
-        status: "Нормальная",
+    {
+        id: 3,
+        humidity: {value: 82, unit: "%", label: "Влажность"},
+        pressure: {value: 748, label: "Давление", status: "Пониженное"},
+        visibility: {value: 10, unit: "км", label: "Видимость", status: "Нормальная"},
+        sunrise: {value: "08:38", label: "Рассвет", since: "02:50"},
+        sunset: {value: "16:35", label: "Закат", remaining: "05:15"},
+        wind: {value: 6, unit: "м/с", code: "NE", description: "Северо-западный", label: "Сила ветра"},
     },
-
-    sunrise: {
-        value: "08:42",
-        label: "Рассвет",
-        since: "02:47",
+    {
+        id: 4,
+        humidity: {value: 55, unit: "%", label: "Влажность"},
+        pressure: {value: 758, label: "Давление", status: "Нормальное"},
+        visibility: {value: 35, unit: "км", label: "Видимость", status: "Отличная"},
+        sunrise: {value: "08:35", label: "Рассвет", since: "02:40"},
+        sunset: {value: "16:40", label: "Закат", remaining: "04:45"},
+        wind: {value: 3, unit: "м/с", code: "W", description: "Северо-западный", label: "Сила ветра"},
     },
-
-    sunset: {
-        value: "16:37",
-        label: "Закат",
-        remaining: "05:08",
+    {
+        id: 5,
+        humidity: {value: 68, unit: "%", label: "Влажность"},
+        pressure: {value: 752, label: "Давление", status: "Нормальное"},
+        visibility: {value: 22, unit: "км", label: "Видимость", status: "Нормальная"},
+        sunrise: {value: "08:30", label: "Рассвет", since: "02:30"},
+        sunset: {value: "16:45", label: "Закат", remaining: "04:30"},
+        wind: {value: 5, unit: "м/с", code: "SW", description: "Северо-западный", label: "Сила ветра"},
     },
-
-    wind: {
-        value: 2,
-        unit: "м/с",
-        code: "NW",
-        description: "Северо-западный",
-        label: "Сила ветра",
-    }
-};
+    {
+        id: 6,
+        humidity: {value: 73, unit: "%", label: "Влажность"},
+        pressure: {value: 765, label: "Давление", status: "Повышенное"},
+        visibility: {value: 18, unit: "км", label: "Видимость", status: "Нормальная"},
+        sunrise: {value: "08:25", label: "Рассвет", since: "02:20"},
+        sunset: {value: "16:50", label: "Закат", remaining: "04:20"},
+        wind: {value: 7, unit: "м/с", code: "S", description: "Северо-западный", label: "Сила ветра"},
+    },
+    {
+        id: 7,
+        humidity: {value: 49, unit: "%", label: "Влажность"},
+        pressure: {value: 750, label: "Давление", status: "Нормальное"},
+        visibility: {value: 40, unit: "км", label: "Видимость", status: "Отличная"},
+        sunrise: {value: "08:20", label: "Рассвет", since: "02:10"},
+        sunset: {value: "16:55", label: "Закат", remaining: "04:10"},
+        wind: {value: 2, unit: "м/с", code: "SE", description: "Северо-западный", label: "Сила ветра"},
+    },
+    {
+        id: 8,
+        humidity: {value: 88, unit: "%", label: "Влажность"},
+        pressure: {value: 744, label: "Давление", status: "Пониженное"},
+        visibility: {value: 8, unit: "км", label: "Видимость", status: "Слабая"},
+        sunrise: {value: "08:18", label: "Рассвет", since: "02:05"},
+        sunset: {value: "16:33", label: "Закат", remaining: "05:25"},
+        wind: {value: 9, unit: "м/с", code: "E", description: "Северо-западный", label: "Сила ветра"},
+    },
+    {
+        id: 9,
+        humidity: {value: 65, unit: "%", label: "Влажность"},
+        pressure: {value: 759, label: "Давление", status: "Нормальное"},
+        visibility: {value: 25, unit: "км", label: "Видимость", status: "Нормальная"},
+        sunrise: {value: "08:15", label: "Рассвет", since: "02:00"},
+        sunset: {value: "16:30", label: "Закат", remaining: "05:00"},
+        wind: {value: 3, unit: "м/с", code: "NW", description: "Северо-западный", label: "Сила ветра"},
+    },
+    {
+        id: 10,
+        humidity: {value: 70, unit: "%", label: "Влажность"},
+        pressure: {value: 754, label: "Давление", status: "Нормальное"},
+        visibility: {value: 20, unit: "км", label: "Видимость", status: "Нормальная"},
+        sunrise: {value: "08:10", label: "Рассвет", since: "01:55"},
+        sunset: {value: "16:25", label: "Закат", remaining: "05:10"},
+        wind: {value: 4, unit: "м/с", code: "NW", description: "Северо-западный", label: "Сила ветра"},
+    },
+];
