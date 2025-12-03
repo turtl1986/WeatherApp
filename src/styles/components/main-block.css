@@ -1,0 +1,10 @@
+.weather-app__main {
+    display: flex;
+    flex-direction: column;
+}
+
+.weather-app__block {
+    padding: 32px;
+    display: flex;
+    justify-content: space-between;
+}

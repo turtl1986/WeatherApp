@@ -1,96 +1,95 @@
 class CityCard {
 
     #cityCardBlock;
+    #weatherIcons = {
+        clear_sky: {
+            day: "dayClear.svg",
+            night: "nightClear.svg"
+        },
+        scattered_clouds: {
+            day: "dayScatteredClouds.svg",
+            night: "nightScatteredClouds.svg"
+        },
+        few_clouds: {
+            day: "dayFewClouds.svg",
+            night: "nightFewClouds.svg"
+        },
+        mist: {
+            day: "dayMist.svg",
+            night: "dayMist.svg"
+        },
+        cloudy: {
+            day: "dayCloudy.svg",
+            night: "nightCloudy.svg"
+        },
+        rain: {
+            day: "dayRain.svg",
+            night: "nightRain.svg"
+        },
+        snow: {
+            day: "daySnow.svg",
+            night: "daySnow.svg"
+        },
+        shower_rain: {
+            day: "showerRain.svg",
+            night: "showerRain.svg"
+        },
+        thunderstorm: {
+            day: "dayThunderstorm.svg",
+            night: "dayThunderstorm.svg"
+        }
+    }
 
     init() {
         this.#cityCardBlock = document.querySelector('.weather-app__current')
 
         if (!this.#cityCardBlock) {
             const weatherBlock = document.querySelector('.weather-app__block')
-            this.#cityCardBlock = `<div class="weather-app__current"></div>`
-            weatherBlock.insertAdjacentHTML('beforeend', this.#cityCardBlock)
+            this.#cityCardBlock = createElement("div", "weather-app__current")
+            weatherBlock.appendChild(this.#cityCardBlock)
         }
 
         return this
     }
 
     render(cityData) {
-        this.#cityCardBlock.replaceChildren();
-        const cityLocalDateTime = this.getCityLocalDateTime(cityData)
-        let path = this.getPathImg(cityData.status, cityLocalDateTime.time)
-        const cardBlock = `
-        <h2 class="weather-app__city">${cityData.cityRu}</h2>
-        <p class="weather-app__date">
-            <time datetime="2023-01-06">${cityLocalDateTime.date}</time>
-            <time datetime="11:29">${cityLocalDateTime.time}</time>
-        </p>
-        <div class="weather-app__temperature">${cityData.temperature}°</div>
-        <div class="weather-app__condition">
-            <img class="weather-app__condition-img"
-                 src="assets/images/content/weatherIcons/${path}"
-                 width="24" height="24"
-                 alt=${cityData.statusRu}>
-            <p class="weather-app__condition-text">${cityData.statusRu}</p>
-        </div>
-        <p class="weather-app__feels">Ощущается как ${cityData.feelsLike}°</p>`
+        this.#cityCardBlock.innerHTML = ''
 
-        this.#cityCardBlock.insertAdjacentHTML('beforeend', cardBlock);
+        const cityLocalDateTime = DateTimeUtils.getCityLocalDateTime(cityData)
+        const cityEl = createElement('h2', 'weather-app__city', cityData.cityRu)
+        const dateEl = this.#createDateTimeBlock(cityLocalDateTime)
+        const tempEl = createElement('div', 'weather-app__temperature', `${cityData.temperature}°`)
+        const conditionEl = this.#createWeatherCondition(cityData, cityLocalDateTime)
+        const feelsEl = createElement('p', 'weather-app__feels', `Ощущается как ${cityData.feelsLike}°`)
+
+        this.#cityCardBlock.append(cityEl, dateEl, tempEl, conditionEl, feelsEl)
     }
 
-    getPathImg(status, time) {
-        let isDay = this.getDayPeriod(time)
-        switch (status) {
-            case "clear_sky":
-                return isDay === "day" ? "dayClear.svg" : "nightClear.svg"
+    #createWeatherCondition(cityData, cityLocalDateTime) {
+        const conditionEl = createElement('div', 'weather-app__condition');
 
-            case "scattered_clouds":
-                return isDay === "day" ? "dayScatteredClouds.svg" : "nightScatteredClouds.svg"
+        const imgEl = createElement('img', 'weather-app__condition-img', null,
+            {src: this.getPathImg(cityData, cityLocalDateTime.time), width: 24, height: 24, alt: cityData.statusRu})
 
-            case "few_clouds":
-                return isDay === "day" ? "dayFewClouds.svg" : "nightFewClouds.svg"
+        const conditionTextEl = createElement('p', 'weather-app__condition-text', cityData.statusRu);
 
-            case "mist":
-                return "dayMist.svg"
-
-            case "cloudy":
-                return isDay === "day" ? "dayCloudy.svg" : "nightCloudy.svg"
-
-            case "rain":
-                return isDay === "day" ? "dayRain.svg" : "nightRain.svg"
-
-            case "snow":
-                return "daySnow.svg"
-
-            case "shower_rain":
-                return "showerRain.svg"
-
-            case "thunderstorm":
-                return "dayThunderstorm.svg"
-        }
+        conditionEl.append(imgEl, conditionTextEl);
+        return conditionEl;
     }
 
-    getDayPeriod(time) {
-        const [hoursStr] = time.split(":");
-        const hours = Number(hoursStr);
-        return hours >= 6 && hours < 18 ? "day" : "night";
+    #createDateTimeBlock(cityLocalDateTime) {
+        const dateEl = createElement('p', 'weather-app__date')
+
+        const dateTimeEl = createElement('time', null, cityLocalDateTime.date, { datetime: cityLocalDateTime.date })
+        const timeEl = createElement('time', null, cityLocalDateTime.time, { datetime: cityLocalDateTime.time })
+
+        dateEl.append(dateTimeEl, timeEl)
+        return dateEl
     }
 
-    getCityLocalDateTime(cityData) {
-        const now = new Date();
-        const utcTime = now.getTime() + (now.getTimezoneOffset() * 60000);
-        const cityTime = new Date(utcTime + (3600000 * cityData.timezoneOffset));
-
-        return {
-            time: cityTime.toLocaleTimeString('ru-RU', {
-                hour12: false,
-                hour: '2-digit',
-                minute: '2-digit'
-            }),
-            date: cityTime.toLocaleDateString('ru-RU', {
-                weekday: 'long',
-                month: 'long',
-                day: 'numeric'
-            })
-        }
+    getPathImg(cityData, time) {
+        let period = DateTimeUtils.getDayPeriod(cityData,time)
+        return `src/assets/images/content/weatherIcons/${this.#weatherIcons[cityData.status]?.[period]}`
     }
+
 }

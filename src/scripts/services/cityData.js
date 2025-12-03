@@ -89,4 +89,4 @@ const cityData = [
         status: "mist",
         statusRu: "Туман",
     },
-];
+]
