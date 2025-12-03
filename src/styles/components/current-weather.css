@@ -1,0 +1,58 @@
+.weather-app__current {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    padding: 8px;
+    justify-content: space-between;
+}
+
+.weather-app__city {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: 0;
+    text-align: center;
+    color: var(--app-main-color, rgba(245, 244, 244, 1));
+}
+
+.weather-app__date {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.weather-app__date, .weather-app__condition-text, .weather-app__feels {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    color: var(--app-main-color, rgba(245, 244, 244, 1));
+}
+
+.weather-app__temperature {
+    padding: 64px;
+    font-weight: 700;
+    font-size: 112px;
+    line-height: 112px;
+    text-align: center;
+    color: var(--app-main-color, rgba(245, 244, 244, 1));
+}
+
+.weather-app__condition {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.weather-app__condition-img {
+    width: 24px;
+    height: 24px;
+}
+
+.weather-app__forecast {
+    display: grid;
+    grid-template-columns: repeat(3, 158px);
+    grid-template-rows: repeat(2, 196px);
+    gap: 16px;
+}

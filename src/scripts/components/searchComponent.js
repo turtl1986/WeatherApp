@@ -1,16 +1,15 @@
 class SearchComponent {
 
-    static SEARCH_CLASS = 'weather-app__search-button--search';
-    static CLOSE_CLASS = 'weather-app__search-button--close';
+    static SEARCH_CLASS = 'weather-app__search-button--search'
+    static CLOSE_CLASS = 'weather-app__search-button--close'
 
     #searchInput
     #searchButton
     #cityData
-    #cityFind
     #forecastCardsInstance
     #cityCardInstance;
 
-    constructor(cityData,forecastCards, cityCardInstance) {
+    constructor(cityData, forecastCards, cityCardInstance) {
         this.#cityData = cityData
         this.#forecastCardsInstance = forecastCards
         this.#cityCardInstance = cityCardInstance
@@ -19,57 +18,56 @@ class SearchComponent {
     init() {
         this.#searchInput = document.querySelector('.weather-app__search-input')
         this.#searchButton = document.querySelector('.weather-app__search-button')
-
         return this
     }
 
     bindEvents() {
-        this.#searchInput.addEventListener('input', this.handleInput.bind(this));
-        this.#searchButton.addEventListener('click', this.handleClick.bind(this));
-
+        this.#searchInput.addEventListener('input', debounce(this.handleInput.bind(this), 300))
+        this.#searchButton.addEventListener('click', this.handleClick.bind(this))
         return this
     }
 
     isSearchState() {
-        return this.#searchButton.classList.contains(SearchComponent.SEARCH_CLASS);
+        return this.#searchButton.classList.contains(SearchComponent.SEARCH_CLASS)
     }
 
-    handleInput(event) {
-        if (!event.target.value.length) {
-            this.setButtonSearchToState(SearchComponent.CLOSE_CLASS, SearchComponent.SEARCH_CLASS)
-        }
+    handleInput() {
+        if (!this.#searchInput.value) this.setButtonSearch(true)
+        else this.handleCitySearch(this.#searchInput.value)
     }
 
     handleClick() {
-        if (this.isSearchState()) {
-            this.findCity(this.#searchInput.value)
-        } else {
+        if (!this.isSearchState()) {
             this.#searchInput.value = ''
-            this.setButtonSearchToState(SearchComponent.CLOSE_CLASS, SearchComponent.SEARCH_CLASS)
+            this.setButtonSearch(true)
         }
     }
 
-    setButtonSearchToState(rcl, cl) {
-        this.#searchButton.classList.remove(rcl);
-        this.#searchButton.classList.add(cl);
+    setButtonSearch(isSearching) {
+        this.#searchButton.classList.toggle(SearchComponent.SEARCH_CLASS, isSearching)
+        this.#searchButton.classList.toggle(SearchComponent.CLOSE_CLASS, !isSearching)
     }
 
     findCity(val) {
-        const cityFind = this.#cityData.find(city => (city.cityRu.toLowerCase() === val.toLowerCase()) || (city.city.toLowerCase() === val.toLowerCase()))
+        const searchTerm = val.toLowerCase().trim()
+        return this.#cityData.find(city => city.cityRu.toLowerCase().includes(searchTerm) || city.city.toLowerCase().includes(searchTerm))
+    }
+
+    handleCitySearch(val) {
+        const cityFind = this.findCity(val)
 
         if (cityFind) {
             this.updateCityWeather(cityFind)
         } else {
-            this.setButtonSearchToState(SearchComponent.CLOSE_CLASS, SearchComponent.SEARCH_CLASS)
+            this.setButtonSearch(true)
             alert("Город не найден")
         }
     }
 
     updateCityWeather(cityFind) {
-        this.#cityFind =cityFind
-        let weather = weatherData.find(weather => weather.id === cityFind.weatherId)
+        let weather = findWeatherConditions(cityFind)
         this.#cityCardInstance.render(cityFind)
-        this.#forecastCardsInstance.render(weather)
-        this.setButtonSearchToState(SearchComponent.SEARCH_CLASS, SearchComponent.CLOSE_CLASS)
+        this.#forecastCardsInstance.render(weather, cityFind)
+        this.setButtonSearch(false)
     }
 }

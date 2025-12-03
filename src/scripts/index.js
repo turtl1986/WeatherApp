@@ -11,8 +11,8 @@ class WeatherApp {
 
     init() {
         this.cityCardInstance.init().render(this.cityData[0])
-        const currentWeather = this.weatherData.find((item) => item.id === this.cityData[0].weatherId)
-        this.forecastCardsInstance.init().render(currentWeather)
+        const currentWeather = findWeatherConditions(this.cityData[0])
+        this.forecastCardsInstance.init().render(currentWeather,this.cityData[0])
         this.searchComponent = new SearchComponent(this.cityData, this.forecastCardsInstance, this.cityCardInstance)
         this.searchComponent.init().bindEvents()
         return this;
