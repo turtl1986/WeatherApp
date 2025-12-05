@@ -1,4 +1,6 @@
-class SearchComponent {
+import {debounce, findWeatherConditions} from "../utils/common.js";
+
+export class SearchComponent {
 
     static SEARCH_CLASS = 'weather-app__search-button--search'
     static CLOSE_CLASS = 'weather-app__search-button--close'

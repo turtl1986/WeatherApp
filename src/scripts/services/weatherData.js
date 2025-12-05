@@ -1,4 +1,4 @@
-const weatherData = [
+export const weatherData = [
     {
         id: 1,
         humidity: {value: 75, unit: "%", label: "Влажность"},

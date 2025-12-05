@@ -1,4 +1,7 @@
-class ForecastCards {
+import {createElement} from "../utils/common.js";
+import {DateTimeUtils} from "../utils/dateTimeUtils.js";
+
+export class ForecastCards {
 
     #forecastCardsBlock
 
