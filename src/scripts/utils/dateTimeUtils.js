@@ -1,4 +1,6 @@
-class DateTimeUtils {
+import {findWeatherConditions} from "./common.js";
+
+export class DateTimeUtils {
 
     static MINUTES_IN_HOUR = 60
     static MILLISECONDS_IN_MINUTE = 60000

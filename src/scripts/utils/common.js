@@ -1,4 +1,6 @@
-function debounce(fn, delay) {
+import {weatherData} from "../services/weatherData.js";
+
+export function debounce(fn, delay) {
     let timer
 
     return function (...args) {
@@ -7,7 +9,7 @@ function debounce(fn, delay) {
     }
 }
 
-function createElement(tag, cl = null, text = null, attrs = {}) {
+export function createElement(tag, cl = null, text = null, attrs = {}) {
     const el = document.createElement(tag)
     if (cl) el.className = cl
     if (text) el.textContent = text
@@ -21,6 +23,6 @@ function createElement(tag, cl = null, text = null, attrs = {}) {
     return el
 }
 
-function findWeatherConditions(cityData) {
+export function findWeatherConditions(cityData) {
     return weatherData.find(weather => weather.id === cityData.weatherId)
 }

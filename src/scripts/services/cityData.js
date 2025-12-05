@@ -1,4 +1,4 @@
-const cityData = [
+export const cityData = [
     {
         city: "london",
         cityRu: "Лондон",

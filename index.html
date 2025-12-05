@@ -4,14 +4,11 @@
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
           rel="stylesheet">
-    <script defer src="src/scripts/utils/common.js"></script>
-    <script defer src="src/scripts/utils/dateTimeUtils.js"></script>
-    <script defer src="./src/scripts/services/cityData.js"></script>
-    <script defer src="./src/scripts/services/weatherData.js"></script>
-    <script defer src="./src/scripts/components/cityCard.js"></script>
-    <script defer src="./src/scripts/components/searchComponent.js"></script>
-    <script defer src="./src/scripts/components/forecastCards.js"></script>
-    <script defer src="./src/scripts/index.js"></script>
+    <link rel="иконка приложения WeatherApp" href="./src/assets/images/content/weatherIcons/dayCloudy.svg" type="image/x-icon">
+    <meta property="og:title" content="WeatherApp">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Сайт для погоды">
+    <script type="module" src="./src/scripts/index.js"></script>
 
     <link rel="stylesheet" href="src/styles/reset.css">
     <link rel="stylesheet" href="src/styles/base.css">
@@ -50,7 +47,15 @@
         </section>
         <section class="weather-app__slider"></section>
     </main>
-    <footer class="weather-app__footer"></footer>
+    <footer class="weather-app__footer">
+        <div class="weather-app__footer-container">
+            <p class="weather-app__footer-text">
+                Проект выполнен в рамках стажировки
+                <a class="weather-app__footer-text weather-app__footer-link" href="https://preax.ru" target="_blank"
+                   rel="noopener noreferrer">PREAX</a>
+            </p>
+        </div>
+    </footer>
 </div>
 </body>
 </html>

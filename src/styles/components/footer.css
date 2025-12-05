@@ -2,3 +2,25 @@
     width: 1120px;
     height: 84px;
 }
+
+.weather-app__footer-container {
+    display: flex;
+    justify-content: center;
+}
+
+.weather-app__footer-text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0;
+    text-align: center;
+    color: var(--app-main-color, rgba(245, 244, 244, 1));
+}
+
+
+.weather-app__footer-link {
+    text-transform: uppercase;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+}

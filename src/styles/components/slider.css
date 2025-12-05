@@ -1,4 +1,159 @@
 .weather-app__slider {
     width: 1120px;
     height: 192px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding: 32px;
 }
+
+.weather-app__slider-header {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+}
+
+.weather-app__slider-title {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: 0;
+    text-align: center;
+    color: var(--app-main-color, rgba(245, 244, 244, 1));
+}
+
+.weather-app__slider-tabs {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+}
+
+.weather-app__slider-tab {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0;
+    text-align: center;
+    color: rgba(166, 166, 166, 1);
+}
+
+.weather-app__slider-tab:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+}
+
+.weather-app__slider-tab--active {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+    color: var(--app-main-color, rgba(245, 244, 244, 1));
+}
+
+.weather-app__slider-container {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    gap: 32px;
+}
+
+.weather-app__slider-button-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 16px;
+    border-radius: 8px;
+    background: rgba(245, 244, 244, 0.4);
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.weather-app__slider-button-block--right{
+    margin-right: 0;
+}
+
+.weather-app__slider-button-block--left{
+    margin-left: 0;
+}
+
+.weather-app__slider-button-block:hover {
+    opacity: 1;
+    background: rgba(245, 244, 244, 0.4);
+}
+
+.weather-app__slider-button {
+    width: 24px;
+    height: 24px;
+    background: transparent url("../../assets/ui/pointer.svg") center center no-repeat;
+    border: none;
+    cursor: pointer;
+}
+
+.weather-app__slider-button--right {
+    transform: rotate(0deg);
+}
+
+.weather-app__slider-button--left {
+    transform: rotate(180deg);
+}
+
+.weather-forecast__slider-content {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    width: 880px;
+    flex-shrink: 0;
+}
+
+.weather-forecast__slider-content::-webkit-scrollbar {
+    display: none;
+}
+
+.weather-forecast__slide {
+    display: flex;
+    align-items: center;
+    color: rgba(32, 32, 32, 1);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0;
+    text-align: center;
+    background: rgba(245, 244, 244, 0.4);
+    border-radius: 8px;
+    padding: 16px;
+    width: 156px;
+    gap: 6px;
+}
+
+.weather-forecast__slide--5day {
+    width: 275px;
+    flex-shrink: 0;
+}
+
+.weather-forecast__slide-header {
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.weather-forecast__slider-condition-img {
+    margin-right: 6px;
+}
+
+.weather-app__slider-button-block--disabled{
+    pointer-events: none;
+    background: rgba(245, 244, 244, 0.4);
+}
+
+.weather-app__slider-button-block--disabled .weather-app__slider-button {
+    background: transparent url("../../assets/ui/pointerDisabled.svg") center center no-repeat;
+
+}
+
+
+
