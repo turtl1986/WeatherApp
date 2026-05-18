@@ -17,7 +17,7 @@ export const weatherIcons = {
     },
     cloudy: {
         day: "dayCloudy.svg",
-        night: "nightCloudy.svg"
+        night: "dayCloudy.svg"
     },
     rain: {
         day: "dayRain.svg",

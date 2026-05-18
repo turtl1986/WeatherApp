@@ -1,6 +1,6 @@
 import {debounce, findWeatherConditions} from "../utils/common.js";
 
-export class SearchComponent {
+export default class SearchComponent {
 
     static SEARCH_CLASS = 'weather-app__search-button--search'
     static CLOSE_CLASS = 'weather-app__search-button--close'
@@ -11,15 +11,12 @@ export class SearchComponent {
     #forecastCardsInstance
     #cityCardInstance;
 
-    constructor(cityData, forecastCards, cityCardInstance) {
+    init(cityData, forecastCards, cityCardInstance,searchInput,searchButton) {
         this.#cityData = cityData
         this.#forecastCardsInstance = forecastCards
         this.#cityCardInstance = cityCardInstance
-    }
-
-    init() {
-        this.#searchInput = document.querySelector('.weather-app__search-input')
-        this.#searchButton = document.querySelector('.weather-app__search-button')
+        this.#searchInput = searchInput
+        this.#searchButton = searchButton
         return this
     }
 
@@ -34,11 +31,13 @@ export class SearchComponent {
     }
 
     handleInput() {
+        console.log(this.#searchInput.value)
         if (!this.#searchInput.value) this.setButtonSearch(true)
         else this.handleCitySearch(this.#searchInput.value)
     }
 
     handleClick() {
+        console.log(this.#searchInput.value)
         if (!this.isSearchState()) {
             this.#searchInput.value = ''
             this.setButtonSearch(true)
@@ -61,7 +60,7 @@ export class SearchComponent {
         if (cityFind) {
             this.updateCityWeather(cityFind)
         } else {
-            this.setButtonSearch(true)
+            this.setButtonSearch(false)
             alert("Город не найден")
         }
     }
