@@ -9,6 +9,8 @@ export function debounce(fn, delay) {
     }
 }
 
+
+
 export function createElement(tag, cl = null, text = null, attrs = {}) {
     const el = document.createElement(tag)
     if (cl) el.className = cl

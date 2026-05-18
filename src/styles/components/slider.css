@@ -4,13 +4,13 @@
     display: flex;
     flex-direction: column;
     gap: 32px;
-    padding: 32px;
+    padding: 33px;
 }
 
 .weather-app__slider-header {
     display: flex;
     gap: 32px;
-    align-items: center;
+    align-items: baseline;
 }
 
 .weather-app__slider-title {
@@ -26,6 +26,7 @@
     display: flex;
     gap: 32px;
     align-items: center;
+    margin-top: 7px;
 }
 
 .weather-app__slider-tab {
@@ -67,14 +68,13 @@
     border-radius: 8px;
     background: rgba(245, 244, 244, 0.4);
     cursor: pointer;
-    opacity: 0.5;
 }
 
-.weather-app__slider-button-block--right{
+.weather-app__slider-button-block--right {
     margin-right: 0;
 }
 
-.weather-app__slider-button-block--left{
+.weather-app__slider-button-block--left {
     margin-left: 0;
 }
 
@@ -101,7 +101,7 @@
 
 .weather-forecast__slider-content {
     display: flex;
-    gap: 16px;
+    gap: 17px;
     align-items: center;
     overflow-x: auto;
     scroll-behavior: smooth;
@@ -126,12 +126,11 @@
     background: rgba(245, 244, 244, 0.4);
     border-radius: 8px;
     padding: 16px;
-    width: 156px;
-    gap: 6px;
+    gap: 13px;
+    flex-shrink: 0;
 }
 
 .weather-forecast__slide--5day {
-    width: 275px;
     flex-shrink: 0;
 }
 
@@ -145,14 +144,18 @@
     margin-right: 6px;
 }
 
-.weather-app__slider-button-block--disabled{
+.weather-app__slider-button-block--disabled {
     pointer-events: none;
     background: rgba(245, 244, 244, 0.4);
+    cursor: not-allowed;
 }
 
 .weather-app__slider-button-block--disabled .weather-app__slider-button {
     background: transparent url("../../assets/ui/pointerDisabled.svg") center center no-repeat;
+}
 
+.weather-forecast__date {
+    margin-right: 1px;
 }
 
 

@@ -1,6 +1,6 @@
 import {findWeatherConditions} from "./common.js";
 
-export class DateTimeUtils {
+export default class DateTimeUtils {
 
     static MINUTES_IN_HOUR = 60
     static MILLISECONDS_IN_MINUTE = 60000
@@ -53,8 +53,9 @@ export class DateTimeUtils {
         return currentMinutes >= sunriseMinutesTotal && currentMinutes < sunsetMinutesTotal ? "day" : "night"
     }
 
-    static convertTimeToMinutes(time) {
+    static convertTimeToMinutes(time){
         const [hoursStr, minutesStr] = time.split(":")
         return Number(hoursStr) * DateTimeUtils.MINUTES_IN_HOUR + Number(minutesStr)
     }
 }
+

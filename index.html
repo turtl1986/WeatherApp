@@ -2,23 +2,11 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
-          rel="stylesheet">
-    <link rel="иконка приложения WeatherApp" href="./src/assets/images/content/weatherIcons/dayCloudy.svg" type="image/x-icon">
-    <meta property="og:title" content="WeatherApp">
-    <meta property="og:type" content="website">
-    <meta property="og:description" content="Сайт для погоды">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&display=swap" rel="stylesheet">
     <script type="module" src="./src/scripts/index.js"></script>
-
-    <link rel="stylesheet" href="src/styles/reset.css">
-    <link rel="stylesheet" href="src/styles/base.css">
-    <link rel="stylesheet" href="src/styles/components/header.css">
-    <link rel="stylesheet" href="src/styles/components/search.css">
-    <link rel="stylesheet" href="src/styles/components/main-block.css">
-    <link rel="stylesheet" href="src/styles/components/current-weather.css">
-    <link rel="stylesheet" href="src/styles/components/forecast-card.css">
-    <link rel="stylesheet" href="src/styles/components/slider.css">
-    <link rel="stylesheet" href="src/styles/components/footer.css">
+    <link rel="stylesheet" href="./src/styles/index.css">
     <title>WeatherApp</title>
 
 </head>
@@ -47,12 +35,11 @@
         </section>
         <section class="weather-app__slider"></section>
     </main>
-    <footer class="weather-app__footer">
-        <div class="weather-app__footer-container">
-            <p class="weather-app__footer-text">
+    <footer class="footer">
+        <div class="footer__container">
+            <p class="footer__text">
                 Проект выполнен в рамках стажировки
-                <a class="weather-app__footer-text weather-app__footer-link" href="https://preax.ru" target="_blank"
-                   rel="noopener noreferrer">PREAX</a>
+                <a class="footer__link" href="https://preax.ru" target="_blank" rel="noopener noreferrer">PREAX</a>
             </p>
         </div>
     </footer>
