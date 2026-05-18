@@ -1,0 +1,36 @@
+:root {
+    --app-main-color: rgba(245, 244, 244, 1);
+    --app-secondary-color: rgba(32, 32, 32, 1);
+    --app-radius: 8px;
+    --app-max-width: 1120px;
+}
+
+body {
+    min-width: 1280px;
+    font-family: Raleway, sans-serif;
+    font-variant-numeric: lining-nums;
+    margin: 0;
+    overflow: auto;
+}
+
+.app-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../assets/images/backgrounds/cover.jpeg") center center no-repeat;
+    background-size: cover;
+    z-index: -1;
+}
+
+.weather-app {
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    max-width: 1120px;
+    margin: 32px auto;
+    color: var(--app-main-color, rgba(245, 244, 244, 1));
+    display: flex;
+    flex-direction: column;
+}

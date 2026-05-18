@@ -1,0 +1,59 @@
+.progress-bar_cover{
+    position: relative;
+    --x: 0px;
+}
+
+.progress-line{
+    width: 126px;
+    height: 8px;
+    border: none;
+    border-radius: 8px;
+    background: rgba(218, 218, 218, 0.4);
+}
+
+.progress-circle{
+    width: 8px;
+    height: 8px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(245, 244, 244, 1);
+    position: absolute;
+    top:0;
+}
+
+.progress-line__black{
+    width: 126px;
+    height: 8px;
+    border: none;
+    border-radius: 8px;
+
+    background:
+            radial-gradient(
+                    50% 9453.13% at 50% 50%,
+                    rgba(84, 84, 84, 0.4) 0%,
+                    rgba(138, 138, 138, 0.4) 45.12%,
+                    #DADADA 100%,
+                    rgba(218, 218, 218, 0.4) 100%
+            );
+
+    mask:
+            radial-gradient(
+                    circle 6px at var(--x) 50%,
+                    transparent 99%,
+                    black 100%
+            );
+}
+
+.progress-circle__black{
+    width: 8px;
+    height: 8px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(245, 244, 244, 1);
+    position: absolute;
+    left: calc(var(--x) - 16px);
+    top:0;
+}
+
+
+
