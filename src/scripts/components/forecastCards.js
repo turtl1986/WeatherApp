@@ -1,6 +1,6 @@
 import {createElement} from "../utils/common.js";
 import DateTimeUtils from "../utils/dateTimeUtils.js";
-import ProgressBar from "../ui/progressBar.js";
+import ProgressBar from "../ui/progressBar/progressBar.js";
 
 export default class ForecastCards {
 

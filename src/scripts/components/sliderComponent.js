@@ -63,6 +63,7 @@ export default class SliderComponent {
             inactiveTab.classList.remove('weather-app__slider-tab--active')
             activeTab.classList.add('weather-app__slider-tab--active')
             this.#slidersRender(forecastData, is24h)
+            this.#resetSlider()
             this.#updateButtonStates()
         }
     }
@@ -157,5 +158,9 @@ export default class SliderComponent {
 
     #enableButton(block) {
         block.classList.remove("weather-app__slider-button-block--disabled")
+    }
+
+    #resetSlider() {
+        this.#sliderContent.scrollLeft = 0
     }
 }
